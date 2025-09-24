@@ -73,7 +73,7 @@ class Aluno {
       estudou = false;
     }
     print(
-      'Codigo do Aluno: $codigo \nCpf: $cpf \nEsse aluno estudo? ${estudou ? "sim" : "não"}',
+      '\n\nNome do Aluno: $nome  \nCodigo do Aluno: $codigo \nCpf: $cpf \nEsse aluno estudo? ${estudou ? "sim" : "não"}\n\n',
     );
 
     //int qtd2 = print('Qual soma de 1 +5');
