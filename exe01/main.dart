@@ -1,9 +1,15 @@
 import 'dart:io';
 
 void main() {
-  Aluno c1 = new Aluno('Duno', 151542, 08760545640);
+  Aluno c1 = new Aluno('Duno', 151542, 08760544626);
+  print('Teste aluno: ${c1.nome}');
   c1.aplicarTeste();
   c1.status();
+
+  Aluno c2 = new Aluno('Fabio', 151243, 08760542521);
+  print('Teste aluno: ${c2.nome}');
+  c2.aplicarTeste();
+  c2.status();
 }
 
 class Aluno {
@@ -51,15 +57,15 @@ class Aluno {
   }
 
   void aplicarTeste() {
-    stdout.write('Qual soma de  4 + 2');
+    stdout.write('Qual soma de  4 + 2 ');
     String? qt1 = stdin.readLineSync();
     int? resp1 = int.tryParse(qt1 ?? "");
 
-    stdout.write('Qual soma de  1 + 2');
+    stdout.write('Qual soma de  1 + 2 ');
     String? qt2 = stdin.readLineSync();
     int? resp2 = int.tryParse(qt2 ?? "");
 
-    stdout.write('Qual a soma de 1 + 1');
+    stdout.write('Qual a soma de 1 + 1 ');
     String? qtd3 = stdin.readLineSync();
     int? resp3 = int.tryParse(qtd3 ?? '');
 
@@ -74,7 +80,7 @@ class Aluno {
 
   void status() {
     print(
-      'Matricula Aluno: \nNome: $nome \nCodigo: $codigo \nCpf: $cpf \nEsse aluno estudou? $estudou',
+      '\n\nNome do Aluno: $nome \nCodigo: $codigo \nCpf: $cpf \nEsse aluno estudou? ${estudou ? "sim" : "não"}\n',
     );
   }
 }
