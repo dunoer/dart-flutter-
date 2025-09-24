@@ -2,14 +2,11 @@ import 'dart:io';
 
 void main() {
   Aluno c1 = new Aluno('Duno', 151542, 08760544626);
-  print('Teste aluno: ${c1.nome}');
   c1.aplicarTeste();
-  c1.status();
+  ;
 
   Aluno c2 = new Aluno('Fabio', 151243, 08760542521);
-  print('Teste aluno: ${c2.nome}');
   c2.aplicarTeste();
-  c2.status();
 }
 
 class Aluno {
@@ -57,6 +54,7 @@ class Aluno {
   }
 
   void aplicarTeste() {
+    print('\n-- Teste para estudos -- \n Nome do Aluno: $nome');
     stdout.write('Qual soma de  4 + 2 ');
     String? qt1 = stdin.readLineSync();
     int? resp1 = int.tryParse(qt1 ?? "");
@@ -74,13 +72,11 @@ class Aluno {
     } else {
       estudou = false;
     }
+    print(
+      'Codigo do Aluno: $codigo \nCpf: $cpf \nEsse aluno estudo? ${estudou ? "sim" : "não"}',
+    );
+
     //int qtd2 = print('Qual soma de 1 +5');
     //int qtd3 = print('Qual soma de  1+ 1');
-  }
-
-  void status() {
-    print(
-      '\n\nNome do Aluno: $nome \nCodigo: $codigo \nCpf: $cpf \nEsse aluno estudou? ${estudou ? "sim" : "não"}\n',
-    );
   }
 }
