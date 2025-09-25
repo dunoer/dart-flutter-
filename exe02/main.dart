@@ -18,7 +18,7 @@ void main() {
     Conta c1 = new Conta();
     c1.abrirConta();
   } else {
-    print('Fim do Programa');
+    print('----Fim do Programa--------');
   }
 }
 
