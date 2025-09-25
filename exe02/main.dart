@@ -75,7 +75,9 @@ class Conta {
 
   void depositar() {
     if (this.status) {
-      stdout.write('Qual valor deseja depositar?  ');
+      stdout.write(
+        '----Processando depostito --------- \n\n\nQual valor deseja depositar?  ',
+      );
       String? dg1 = stdin.readLineSync();
       int? valor = int.tryParse(dg1 ?? "");
       if (valor == null || valor <= 0) {
@@ -86,6 +88,7 @@ class Conta {
     } else {
       print('Sua Conta esta fechada');
     }
+    this.meusdados();
   }
 
   void saque() {
@@ -134,13 +137,13 @@ class Conta {
       saldo += 50;
       int bonus = 50;
       print(
-        '\n Parabéns você acaba de criar sua conta e ganhou R\$$bonus para começar a usar',
+        '\n--Parabéns você acaba de criar sua conta e ganhou R\$$bonus para começar a usar\n\n',
       );
     } else {
       saldo += 150;
       int bonus2 = 150;
       print(
-        '\n Parabéns você acaba de criar sua conta e ganhou R\$$bonus2 para começar a usar',
+        '\n--Parabéns você acaba de criar sua conta e ganhou R\$$bonus2 para começar a usar\n\n',
       );
     }
     int? caso;
@@ -156,8 +159,25 @@ class Conta {
         continue;
       }
     } while (caso != 1 && caso != 2 && caso != 3 && caso != 4 && caso != 5);
+    switch (caso) {
+      case 1:
+        depositar();
+        break;
+      case 2:
+        saque();
+        break;
+      case 3:
+        pagarMensal();
+        break;
+      case 4:
+        meusdados();
+        break;
+      case 5:
+        fecharConta();
+      default:
+        print('');
+    }
   }
-  
 
   void fecharConta() {
     if (this.saldo == 0) {
@@ -179,7 +199,7 @@ class Conta {
 
   void meusdados() {
     print(
-      '-- Dados da Conta: -- \nNome: $nome \nTipo de Conta: $tipoConta \nSaldo: $saldo \nConta esta ativa? ${this.status ? "Sim" : "Não"}',
+      '---- Dados da Conta: ----- \nNome: $nome \nTipo de Conta: $tipoConta \nSaldo: $saldo \nConta esta ativa? ${this.status ? "Sim" : "Não"}',
     );
   }
 }
