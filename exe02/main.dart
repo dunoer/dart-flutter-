@@ -94,7 +94,7 @@ class Conta {
   void saque() {
     if (this.status && this.saldo > 0) {
       stdout.write(
-        'Qual valor deseja sacar?  --Saldo disponivel: ${this.saldo} ',
+        '\n\n ----Processando saque ------ \n\nQual valor deseja sacar?  --Saldo disponivel: ${this.saldo} ',
       );
 
       String? dg2 = stdin.readLineSync();
@@ -113,6 +113,7 @@ class Conta {
     } else {
       print('Sua conta esta fechada');
     }
+    meusdados();
   }
 
   void abrirConta() {
@@ -149,7 +150,7 @@ class Conta {
     int? caso;
     do {
       stdout.write(
-        'O que deseja fazer agora: \n1- Depositar \n2-Sacar \n3-Pagar mensalidade \n4-Consultar minha conta \n5-FecharConta',
+        'O que deseja fazer agora: \n1- Depositar \n2-Sacar \n3-Pagar mensalidade \n4-Consultar minha conta \n5-FecharConta\n\n',
       );
       String? entrada3 = stdin.readLineSync();
       caso = int.tryParse(entrada3 ?? "");
@@ -183,18 +184,30 @@ class Conta {
     if (this.saldo == 0) {
       this.status = false;
     } else if (this.saldo > 0) {
-      print('Você deve fazer o saque do saldo na conta ${this.saldo}');
+      stdout.write(
+        'Você deve fazer o saque do saldo na conta: ${this.saldo} \n Deseja realizar agora? Digite sim ou nao --> ',
+      );
+      String? entrada4 = stdin.readLineSync();
+      if (entrada4 == 'sim') {
+        print(
+          '\n\n---Realizando saque-----\n\n -------Fechando sua conta -----\n\n',
+        );
+        saldo = saldo - saldo;
+        this.status = false;
+      }
     } else {
       print('Você nao pode fechar a conta pois tem saldo negativo');
     }
+    meusdados();
   }
 
   void pagarMensal() {
-    if (this.tipoConta == 'cc') {
+    if (this.tipoConta == 'cc' && this.saldo >= 12) {
       this.saldo -= 12;
-    } else {
+    } else if (this.saldo >= 20) {
       this.saldo -= 20;
     }
+    meusdados();
   }
 
   void meusdados() {
