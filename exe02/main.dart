@@ -148,35 +148,47 @@ class Conta {
       );
     }
     int? caso;
-    do {
-      stdout.write(
-        'O que deseja fazer agora: \n1- Depositar \n2-Sacar \n3-Pagar mensalidade \n4-Consultar minha conta \n5-FecharConta\n\n',
-      );
-      String? entrada3 = stdin.readLineSync();
-      caso = int.tryParse(entrada3 ?? "");
-      if (caso == null ||
-          (caso != 1 && caso != 2 && caso != 3 && caso != 4 && caso != 5)) {
-        print('\n\nERRO, por favor digite um numero entre 1 e 5');
-        continue;
+    while (caso != 0 && caso != 5) {
+      do {
+        stdout.write(
+          '\n\nO que deseja fazer agora: \n0- Sair \n1- Depositar \n2-Sacar \n3-Pagar mensalidade \n4-Consultar minha conta \n5-FecharConta\n\n',
+        );
+        String? entrada3 = stdin.readLineSync();
+        caso = int.tryParse(entrada3 ?? "");
+        if (caso == null ||
+            (caso != 1 &&
+                caso != 0 &&
+                caso != 2 &&
+                caso != 3 &&
+                caso != 4 &&
+                caso != 5)) {
+          print('\n\nERRO, por favor digite um numero entre 0 ao 5');
+          continue;
+        } else if (caso == 0) {
+          print('---Saindo----');
+          print('--Fim do Programa----\n\n');
+          this.meusdados();
+          break;
+        }
+      } while (caso != 1 && caso != 2 && caso != 3 && caso != 4 && caso != 5);
+      switch (caso) {
+        case 1:
+          depositar();
+          break;
+        case 2:
+          saque();
+          break;
+        case 3:
+          pagarMensal();
+          break;
+        case 4:
+          meusdados();
+          break;
+        case 5:
+          fecharConta();
+        default:
+          print('');
       }
-    } while (caso != 1 && caso != 2 && caso != 3 && caso != 4 && caso != 5);
-    switch (caso) {
-      case 1:
-        depositar();
-        break;
-      case 2:
-        saque();
-        break;
-      case 3:
-        pagarMensal();
-        break;
-      case 4:
-        meusdados();
-        break;
-      case 5:
-        fecharConta();
-      default:
-        print('');
     }
   }
 
@@ -204,10 +216,13 @@ class Conta {
   void pagarMensal() {
     if (this.tipoConta == 'cc' && this.saldo >= 12) {
       this.saldo -= 12;
+      print('---Pagamento Mensalidade: 12reais');
+      meusdados();
     } else if (this.saldo >= 20) {
       this.saldo -= 20;
+      print('----Pagamento Mensalidade: 20reais');
+      meusdados();
     }
-    meusdados();
   }
 
   void meusdados() {
