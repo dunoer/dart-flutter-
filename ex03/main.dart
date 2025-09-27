@@ -2,9 +2,8 @@ import 'controle.dart';
 
 void main() {
   ControleRemoto c = new ControleRemoto();
-  c.ligar();
-  c.maisVolume();
-  c.play();
+  c.ligarMudo();
   c.abrirMenu();
+
   c.fecharMenu();
 }
