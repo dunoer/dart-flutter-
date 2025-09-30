@@ -79,7 +79,7 @@ class Lutador {
     this._derrotas = d;
   }
 
-  int? getEmpate() {
+  int getEmpate() {
     return this._empate;
   }
 
@@ -99,18 +99,29 @@ class Lutador {
   }
 
   //Metodos espciais
-  void apresentar() {}
-  void status() {
-    print('\n\n--- Dados Lutador: ------');
-    print('Nome: ${this.getNome()}');
-    print('Peso do lutador: ${this.getPeso()}');
-    print('Categoria do lutador: ${this.getCategoria()}\n\n');
+  void apresentar() {
+    print('\n--- Apresentação Lutador: ------');
+    print('CHEGOU A HORA! Apresentamos o lutador: ${this.getNome()}');
+    print('Diretamente de: ${this.getNacionalidade()}');
+    print('Com ${this.getIdade()} anos');
+    print('Pesando: ${this.getPeso()} kg');
+    print('\n--- Restrospectiva: ---\n');
+    print('Vitorias: ${this.getVitoria()}');
+    print('Derrotas: ${this.getDerrotas()}');
+    print('Empates: ${this.getEmpate()}\n');
   }
+
+  void status() {}
 
   void ganharLuta() {
-    setVitoria(getVitoria() + 1);
+    this.setVitoria(getVitoria() + 1);
   }
 
-  void perderLuta() {}
-  void empatarLuta() {}
+  void perderLuta() {
+    this.setDerrotas(getDerrotas() + 1);
+  }
+
+  void empatarLuta() {
+    this.setEmpate(getEmpate() + 1);
+  }
 }
