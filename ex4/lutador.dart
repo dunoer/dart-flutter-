@@ -111,7 +111,14 @@ class Lutador {
     print('Empates: ${this.getEmpate()}\n');
   }
 
-  void status() {}
+  void status() {
+    print(
+      '\nLutador ${this.getNome()} é da categoria : ${this.getCategoria()}',
+    );
+    print('Ganhou ${this.getVitoria()} vezes');
+    print('Perdeu ${this.getDerrotas()} vezes');
+    print('Empatou ${this.getEmpate()} vezes\n');
+  }
 
   void ganharLuta() {
     this.setVitoria(getVitoria() + 1);
