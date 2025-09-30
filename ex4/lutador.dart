@@ -66,10 +66,30 @@ class Lutador {
   void setDerrotas(int d) {
     this._derrotas = d;
   }
-  int? getEmpate(){
+
+  int? getEmpate() {
     return this._empate;
   }
-  void setEmpate(int e){
+
+  void setEmpate(int e) {
     this._empate = e;
   }
+
+  //Metodo Construtor
+  Lutador(String n, String na, int i, double p, int v, int d, int e) {
+    this.setNome(n);
+    this.setNacionalidade(na);
+    this.setIdade(i);
+    this.setPeso(p);
+    this.setVitoria(v);
+    this.setDerrotas(d);
+    this.setEmpate(e);
+  }
+
+  //Metodos
+  void apresentar() {}
+  void status() {}
+  void ganharLuta() {}
+  void perderLuta() {}
+  void empatarLuta() {}
 }
