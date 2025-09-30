@@ -1,17 +1,17 @@
 class Lutador {
   //Atribuitos
-  String? _nome;
-  String? _nacionalidade;
-  int? _idade;
-  double? _peso;
-  String? _categoria;
-  int? _vitorias;
-  int? _empate;
-  int? _derrotas;
+  String _nome = '';
+  String _nacionalidade = '';
+  int _idade = 0;
+  double _peso = 0.0;
+  String _categoria = 'jk';
+  int _vitorias = 0;
+  int _empate = 0;
+  int _derrotas = 0;
 
   //Metodos getters setters
 
-  String? getNome() {
+  String getNome() {
     return this._nome;
   }
 
@@ -19,7 +19,7 @@ class Lutador {
     this._nome = n;
   }
 
-  String? getNacionalidade() {
+  String getNacionalidade() {
     return this._nacionalidade;
   }
 
@@ -27,7 +27,7 @@ class Lutador {
     this._nacionalidade = na;
   }
 
-  int? getIdade() {
+  int getIdade() {
     return this._idade;
   }
 
@@ -35,23 +35,35 @@ class Lutador {
     this._idade = i;
   }
 
-  double? getPeso() {
+  double getPeso() {
     return this._peso;
   }
 
   void setPeso(double p) {
     this._peso = p;
+    setCategoria();
   }
 
-  String? getCategoria() {
+  String getCategoria() {
     return this._categoria;
   }
 
-  void setCategoria(String c) {
-    this._categoria = c;
+  void setCategoria() {
+    final pes = this._peso;
+    if (pes < 52.2) {
+      this._categoria = ('Invalido');
+    } else if (pes <= 70.3) {
+      this._categoria = ('Peso leve');
+    } else if (pes <= 83.9) {
+      this._categoria = ('Peso medio');
+    } else if (pes <= 120.2) {
+      this._categoria = ('Peso pesado');
+    } else {
+      this._categoria = ('Invalido');
+    }
   }
 
-  int? getVitoria() {
+  int getVitoria() {
     return this._vitorias;
   }
 
@@ -59,7 +71,7 @@ class Lutador {
     this._vitorias = v;
   }
 
-  int? getDerrotas() {
+  int getDerrotas() {
     return this._derrotas;
   }
 
@@ -86,10 +98,19 @@ class Lutador {
     this.setEmpate(e);
   }
 
-  //Metodos
+  //Metodos espciais
   void apresentar() {}
-  void status() {}
-  void ganharLuta() {}
+  void status() {
+    print('\n\n--- Dados Lutador: ------');
+    print('Nome: ${this.getNome()}');
+    print('Peso do lutador: ${this.getPeso()}');
+    print('Categoria do lutador: ${this.getCategoria()}\n\n');
+  }
+
+  void ganharLuta() {
+    setVitoria(getVitoria() + 1);
+  }
+
   void perderLuta() {}
   void empatarLuta() {}
 }
