@@ -15,6 +15,10 @@ class Livro implements Publicacao {
     return this._titulo;
   }
 
+  Livro(Pessoa l1) {
+    this.setLeitor(l1);
+  }
+
   void setTitulo(String t) {
     this._titulo = t;
   }
@@ -95,7 +99,7 @@ class Livro implements Publicacao {
 
   void detalhes() {
     print(
-      '\n\n---- Caro leitor ${this._leitor?.getNome()} veja aqui detalhe: ------ ',
+      '\n\n---- Caro leitor ${this._leitor?.getNome()} veja aqui detalhes: ------ ',
     );
     print('Sua idade: ${this._leitor?.getIdade()}');
     print('Seu sexo: ${this._leitor?.getSexo()}');
