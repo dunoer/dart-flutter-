@@ -9,6 +9,13 @@ class Pessoa {
     return this._nome;
   }
 
+  Pessoa(String n, int i, String s) {
+    //Contrustor
+    this.setNome(n);
+    this.setIdade(i);
+    this.setSexo(s);
+  }
+
   void setNome(String n) {
     this._nome = n;
   }

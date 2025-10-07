@@ -40,7 +40,11 @@ class Livro implements Publicacao {
   }
 
   void setPagAtual(int p) {
-    this._pagAtual = p;
+    if (this.getPagAtual() >= this.getTotPaginas()) {
+      print('Ultima pagina do livro');
+    } else {
+      this._pagAtual = p;
+    }
   }
 
   bool getAberto() {
@@ -90,7 +94,14 @@ class Livro implements Publicacao {
   }
 
   void detalhes() {
-
-    print('---- Caro leitor veja aqui detalhe');
+    print(
+      '\n\n---- Caro leitor ${this._leitor?.getNome()} veja aqui detalhe: ------ ',
+    );
+    print('Sua idade: ${this._leitor?.getIdade()}');
+    print('Seu sexo: ${this._leitor?.getSexo()}');
+    print('Livro lido: ${this.getTitulo()}');
+    print('Autor: ${this.getAutor()}');
+    print('Pagina Atual: ${this.getPagAtual()}');
+    print('Total de paginas: ${this.getTotPaginas()}');
   }
 }
