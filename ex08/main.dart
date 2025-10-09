@@ -9,10 +9,5 @@ void main() {
   final l = new Lobo();
   final c = new Cachorro();
 
-  m.emitirSom();
-  l.emitirSom();
-  c.emitirSom();
-
-  c.idade = 12;
-  print(c.idade);
+  c.reagir(frase: 'o1la');
 }
