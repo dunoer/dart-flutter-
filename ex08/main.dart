@@ -9,5 +9,6 @@ void main() {
   final l = new Lobo();
   final c = new Cachorro();
 
-  c.reagir(frase: 'o1la');
+  c.reagir(hora: 10, min: 40);
+  c.reagir(dono: true);
 }
